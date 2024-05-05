@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: Todo API
+  description: This API allows users to create, retrieve, update, and delete to-dos.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api
+    description: Development server
+
+paths:
+  /todos:
+    get:
+      summary: List all to-dos
+      operationId: listTodos
+      tags:
+        - To-dos
+      responses:
+        '200':
+          description: An array of to-dos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+
+    post:
+      summary: Create a new to-do
+      operationId: createTodo
+      tags:
+        - To-dos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+      responses:
+        '201':
+          description: Successfully created to-do.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '400':
+          description: Invalid input provided.
+
+  /todos/{todoId}:
+    get:
+      summary: Get a to-do by ID
+      operationId: getTodo
+      tags:
+        - To-dos
+      parameters:
+        - in: path
+          name: todoId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: To-do found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '404':
+          description: To-do not found.
+
+    put:
+      summary: Update a to-do by ID
+      operationId: updateTodo
+      tags:
+        - To-dos
+      parameters:
+        - in: path
+          name: todoId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+      responses:
+        '200':
+          description: Successfully updated to-do.
+        '400':
+          description: Invalid input provided.
+        '404':
+          description: To-do not found.
+
+    delete:
+      summary: Delete a to-do by ID
+      operationId: deleteTodo
+      tags:
+        - To-dos
+      parameters:
+        - in: path
+          name: todoId
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted to-do.
+        '404':
+          description: To-do not found.
+
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for a to-do.
+        title:
+          type: string
+          description: The title of the to-do.
+        description:
+          type: string
+          description: The description of the to-do.
+      required:
+        - title
+        - description

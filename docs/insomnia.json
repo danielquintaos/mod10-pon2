@@ -1,0 +1,114 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-05-10T00:00:00.000Z",
+  "__export_source": "insomnia.desktop",
+  "resources": [
+    {
+      "_id": "wrk_123456",
+      "_type": "workspace",
+      "name": "My API Project",
+      "description": "Workspace for testing the Flask API for managing to-dos"
+    },
+    {
+      "_id": "req_list_todos",
+      "_type": "request",
+      "_parentId": "wrk_123456",
+      "name": "List Todos",
+      "method": "GET",
+      "url": "{{ base_url }}/api/todos",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_create_todo",
+      "_type": "request",
+      "_parentId": "wrk_123456",
+      "name": "Create Todo",
+      "method": "POST",
+      "url": "{{ base_url }}/api/todos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"title\": \"New Todo\", \"description\": \"Description of the new todo\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {}
+    },
+    {
+      "_id": "req_get_todo",
+      "_type": "request",
+      "_parentId": "wrk_123456",
+      "name": "Get Todo",
+      "method": "GET",
+      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "body": {},
+      "parameters": [
+        {
+          "name": "todo_id",
+          "value": "1"
+        }
+      ],
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_update_todo",
+      "_type": "request",
+      "_parentId": "wrk_123456",
+      "name": "Update Todo",
+      "method": "PUT",
+      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"title\": \"Updated Todo\", \"description\": \"Updated description of the todo\"}"
+      },
+      "parameters": [
+        {
+          "name": "todo_id",
+          "value": "1"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {}
+    },
+    {
+      "_id": "req_delete_todo",
+      "_type": "request",
+      "_parentId": "wrk_123456",
+      "name": "Delete Todo",
+      "method": "DELETE",
+      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "body": {},
+      "parameters": [
+        {
+          "name": "todo_id",
+          "value": "1"
+        }
+      ],
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "data": {
+        "base_url": "http://localhost:5000"
+      },
+      "name": "Base Environment",
+      "parentId": "wrk_123456"
+    }
+  ]
+}

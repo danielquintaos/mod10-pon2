@@ -1,0 +1,53 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2024-05-04T00:00:00.000Z",
+    "__export_source": "insomnia.desktop",
+    "resources": [
+      {
+        "_id": "wrk_123456",
+        "_type": "workspace",
+        "name": "My API - GET Tests",
+        "description": "Workspace for testing GET endpoints of My API"
+      },
+      {
+        "_id": "req_123",
+        "_type": "request",
+        "_parentId": "wrk_123456",
+        "name": "List Items",
+        "method": "GET",
+        "url": "{{ base_url }}/items",
+        "body": {},
+        "parameters": [],
+        "headers": [],
+        "authentication": {}
+      },
+      {
+        "_id": "req_124",
+        "_type": "request",
+        "_parentId": "wrk_123456",
+        "name": "Get Item by ID",
+        "method": "GET",
+        "url": "{{ base_url }}/items/{{ item_id }}",
+        "body": {},
+        "parameters": [
+          {
+            "name": "item_id",
+            "value": "1"
+          }
+        ],
+        "headers": [],
+        "authentication": {}
+      },
+      {
+        "_id": "env_123456",
+        "_type": "environment",
+        "data": {
+          "base_url": "http://localhost:5000/api"
+        },
+        "name": "Base Environment",
+        "parentId": "wrk_123456"
+      }
+    ]
+  }
+  
