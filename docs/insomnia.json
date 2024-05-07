@@ -7,8 +7,8 @@
     {
       "_id": "wrk_123456",
       "_type": "workspace",
-      "name": "My API Project",
-      "description": "Workspace for testing the Flask API for managing to-dos"
+      "name": "My API Project - FastAPI",
+      "description": "Workspace for testing the FastAPI version of the Todo API"
     },
     {
       "_id": "req_list_todos",
@@ -16,7 +16,7 @@
       "_parentId": "wrk_123456",
       "name": "List Todos",
       "method": "GET",
-      "url": "{{ base_url }}/api/todos",
+      "url": "{{ base_url }}/todos",
       "body": {},
       "parameters": [],
       "headers": [],
@@ -28,7 +28,7 @@
       "_parentId": "wrk_123456",
       "name": "Create Todo",
       "method": "POST",
-      "url": "{{ base_url }}/api/todos",
+      "url": "{{ base_url }}/todos",
       "body": {
         "mimeType": "application/json",
         "text": "{\"title\": \"New Todo\", \"description\": \"Description of the new todo\"}"
@@ -48,12 +48,12 @@
       "_parentId": "wrk_123456",
       "name": "Get Todo",
       "method": "GET",
-      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "url": "{{ base_url }}/todos/{{ todo_id }}",
       "body": {},
       "parameters": [
         {
           "name": "todo_id",
-          "value": "1"
+          "value": "1"  // This should be updated to a valid ID as needed
         }
       ],
       "headers": [],
@@ -65,7 +65,7 @@
       "_parentId": "wrk_123456",
       "name": "Update Todo",
       "method": "PUT",
-      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "url": "{{ base_url }}/todos/{{ todo_id }}",
       "body": {
         "mimeType": "application/json",
         "text": "{\"title\": \"Updated Todo\", \"description\": \"Updated description of the todo\"}"
@@ -73,7 +73,7 @@
       "parameters": [
         {
           "name": "todo_id",
-          "value": "1"
+          "value": "1"  // This should be updated to a valid ID as needed
         }
       ],
       "headers": [
@@ -90,12 +90,12 @@
       "_parentId": "wrk_123456",
       "name": "Delete Todo",
       "method": "DELETE",
-      "url": "{{ base_url }}/api/todos/{{ todo_id }}",
+      "url": "{{ base_url }}/todos/{{ todo_id }}",
       "body": {},
       "parameters": [
         {
           "name": "todo_id",
-          "value": "1"
+          "value": "1"  // This should be updated to a valid ID as needed
         }
       ],
       "headers": [],
